@@ -1,0 +1,1 @@
+SELECT * FROM homes_sold_per_state;

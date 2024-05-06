@@ -1,0 +1,5 @@
+# This file was automatically generated
+name: redfin_real_estate_data
+type: duckdb
+options:
+  filename: redfin_real_estate_data.duckdb

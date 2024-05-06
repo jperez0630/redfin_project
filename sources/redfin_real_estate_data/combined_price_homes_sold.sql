@@ -1,0 +1,1 @@
+SELECT * FROM combined_price_homes_sold;

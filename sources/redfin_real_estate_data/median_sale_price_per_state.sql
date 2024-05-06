@@ -1,0 +1,1 @@
+SELECT * FROM median_sale_price_per_state;
