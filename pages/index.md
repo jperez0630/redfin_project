@@ -54,6 +54,22 @@ title: Redfin Real Estate Report
     title="Median Sale Price Per State"
 />
 
+```sql median_ppsf_per_state
+    SELECT * FROM median_ppsf_per_state
+    WHERE state in(
+        '${inputs.state.value}')
+    AND property_type like '${inputs.Property_Types}'
+```
+
+<LineChart 
+    data={median_ppsf_per_state
+    }  
+    x=period_end
+    y=median_ppsf
+    title="Median PPSF Per State"
+/>
+
+
 ```sql homes_sold_per_state
     SELECT * FROM homes_sold_per_state
     WHERE state in(

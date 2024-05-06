@@ -72,6 +72,18 @@ df_median_sale_price_US.insert(2,'state','United States')
 #Integrate the U.S Homes Median Sale Price Per Month into the the U.S Median Home Sale Price per satate
 df_final_median_sale_price = pd.concat([df_gb_state_median_sale_price, df_median_sale_price_US], axis=0)
 
+#Grouping by ppsf
+df_gb_state_median_ppsf = df_filtered.groupby([
+    'period_end',
+    'state',
+    'property_type'
+])['median_ppsf'].median().reset_index()
+
+df_median_ppsf_US = df_filtered.groupby(['period_end','property_type'])['median_ppsf'].median().reset_index()
+df_median_ppsf_US.insert(2,'state','United States')
+
+#Integrate the U.S Homes Median PPSF Per Month into the the U.S Median PPSF per state data set
+df_final_median_ppsf = pd.concat([df_gb_state_median_ppsf, df_median_ppsf_US], axis=0)
 
 #Grouping by Homes sold
 df_gb_state_homes_sold = df_filtered.groupby([
@@ -88,7 +100,7 @@ df_homes_sold_US.insert(2,'state','United States')
 #Integrate the U.S Median Homes Sold Per Month into the Median Home Sold Per state
 df_final_homes_sold = pd.concat([df_gb_state_homes_sold, df_homes_sold_US], axis=0)
 
-
+#Merge the median_price homes sold data set (Used for the scatter plot)
 df_merge_price_homes_sold = pd.merge(
     left = df_final_median_sale_price,
     right = df_final_homes_sold,
@@ -97,6 +109,7 @@ df_merge_price_homes_sold = pd.merge(
     right_on = ['period_end', 'state','property_type']
 )
 
+#Filters the df_merge_price_homes_sold so that it only includes the most recent time period
 df_merge_price_homes_sold_final = df_merge_price_homes_sold.loc[(
     df_merge_price_homes_sold[
         'period_end'
@@ -118,20 +131,26 @@ df_merge_price_homes_sold_final = df_merge_price_homes_sold.loc[(
 # fig.show()
 
 
-local_con.sql('''
-CREATE TABLE median_sale_price_per_state AS 
-SELECT * FROM df_final_median_sale_price
-''')
+# local_con.sql('''
+# CREATE TABLE median_sale_price_per_state AS 
+# SELECT * FROM df_final_median_sale_price
+# ''')
+
+# local_con.sql('''
+# CREATE TABLE homes_sold_per_state AS 
+# SELECT * FROM df_final_homes_sold
+# ''')
+
+# local_con.sql('''
+# CREATE TABLE combined_price_homes_sold AS
+# SELECT * FROM df_merge_price_homes_sold_final
+# ''')
 
 local_con.sql('''
-CREATE TABLE homes_sold_per_state AS 
-SELECT * FROM df_final_homes_sold
+CREATE TABLE median_ppsf_per_state AS
+SELECT * FROM df_final_median_ppsf
 ''')
 
-local_con.sql('''
-CREATE TABLE combined_price_homes_sold AS
-SELECT * FROM df_merge_price_homes_sold_final
-''')
 
 # local_con.sql('DROP median_sale_price_per_state')
 # local_con.sql('Drop homes_sold_per_state)
