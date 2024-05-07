@@ -82,7 +82,7 @@ Limit 20
 
 ```sql median_sale_price_by_state
     SELECT * FROM median_sale_price_per_state
-    WHERE state in ${inputs.state.value}
+    WHERE state LIKE '${inputs.state.value}'
     AND property_type like '${inputs.Property_Types}'
 ```
 
@@ -95,7 +95,7 @@ Limit 20
 
 ```sql median_ppsf_per_state
     SELECT * FROM median_ppsf_per_state
-    WHERE state in ${inputs.state.value}
+    WHERE state LIKE '${inputs.state.value}'
     AND property_type like '${inputs.Property_Types}'
 ```
 
@@ -110,7 +110,7 @@ Limit 20
 
 ```sql homes_sold_per_state
     SELECT * FROM homes_sold_per_state
-    WHERE state in ${inputs.state.value}
+    WHERE state LIKE '${inputs.state.value}'
     AND property_type like '${inputs.Property_Types}'
 ```
 
