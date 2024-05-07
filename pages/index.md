@@ -83,8 +83,7 @@ Limit 20
 
 ```sql median_sale_price_by_state
     SELECT * FROM median_sale_price_per_state
-    WHERE state in(
-        '${inputs.state.value}')
+    WHERE state in '${inputs.state.value}'
     AND property_type like '${inputs.Property_Types}'
 ```
 
@@ -97,8 +96,7 @@ Limit 20
 
 ```sql median_ppsf_per_state
     SELECT * FROM median_ppsf_per_state
-    WHERE state in(
-        '${inputs.state.value}')
+    WHERE state in '${inputs.state.value}'
     AND property_type like '${inputs.Property_Types}'
 ```
 
@@ -107,14 +105,13 @@ Limit 20
     }  
     x=period_end
     y=median_ppsf
-    title="Selected State Median Price Per Square Foot"
+    title="Selected States Median Price Per Square Foot"
 />
 
 
 ```sql homes_sold_per_state
     SELECT * FROM homes_sold_per_state
-    WHERE state in(
-        '${inputs.state.value}')
+    WHERE state in '${inputs.state.value}'
     AND property_type like '${inputs.Property_Types}'
 ```
 
@@ -123,7 +120,7 @@ Limit 20
     }  
     x=period_end
     y=homes_sold
-    title="Selected State Homes Sold"
+    title="Selected States Homes Sold"
 />
 
 ```sql scatter_chart
