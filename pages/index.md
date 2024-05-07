@@ -53,7 +53,7 @@ Limit 20
 
 
 <BarChart 
-    data={top_5_median_sale_price} 
+    data={top_20_median_sale_price} 
     x=state
     y=median_sale_price
     title="20 Highest Median Sale Price By Property Type"
