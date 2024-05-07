@@ -106,7 +106,7 @@ Limit 20
     }  
     x=period_end
     y=median_ppsf
-    title="Median PPSF Per State"
+    title="Selected State Median Price Per Square Foot"
 />
 
 
@@ -122,7 +122,7 @@ Limit 20
     }  
     x=period_end
     y=homes_sold
-    title="Homes Sold Per State"
+    title="Selected State Homes Sold"
 />
 
 ```sql scatter_chart
@@ -138,6 +138,7 @@ AND state not in('United States', 'Columbia')
     series=state 
     xAxisTitle=true 
     yAxisTitle=true
+    title="Median Sale Price vs Homes Sold"
 />
 
 ```sql map
