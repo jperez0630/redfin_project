@@ -15,7 +15,6 @@ title: Redfin Real Estate Report
     name=state
     data={states}
     value=state
-    multiple=true
     title="Select a State"
 >
     <DropdownOption value="United States"/>
@@ -105,7 +104,6 @@ Limit 20
     }  
     x=period_end
     y=median_ppsf
-    series=${inputs.state.value}
     title="Selected States Median Price Per Square Foot"
 />
 
