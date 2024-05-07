@@ -2,6 +2,7 @@
 title: Redfin Real Estate Report
 ---
 
+## Select a State and Property Type to View Data
 
 ```sql states
   select
@@ -87,7 +88,7 @@ Limit 20
 ```
 
 
-<LineChart data={median_sale_price_by_state} x=period_end y=median_sale_price yAxisTitle="Median Sale Price">
+<LineChart data={median_sale_price_by_state} x=period_end y=median_sale_price yAxisTitle="Median Sale Price", title='Selected State Median Sale Price'>
     <ReferenceLine x='2020-03-11' label="Start Covid Pandemic" hideValue=true/>
     <ReferenceLine x='2023-05-05' label="End Covid Pandemic" hideValue=true/>
 </LineChart>
