@@ -88,7 +88,7 @@ Limit 20
 ```
 
 
-<LineChart data={median_sale_price_by_state} x=period_end y=median_sale_price, yAxisTitle="Median Sale Price", title='Selected State Median Sale Price', series=state>
+<LineChart data={median_sale_price_by_state} x=period_end y=median_sale_price, yAxisTitle="Median Sale Price", title='Selected State Median Sale Price'>
     <ReferenceLine x='2020-03-11' label="Start Covid Pandemic" hideValue=true/>
     <ReferenceLine x='2023-05-05' label="End Covid Pandemic" hideValue=true/>
 </LineChart>
@@ -105,7 +105,6 @@ Limit 20
     }  
     x=period_end
     y=median_ppsf
-    series=state
     title="Selected States Median Price Per Square Foot"
 />
 
@@ -121,7 +120,6 @@ Limit 20
     }  
     x=period_end
     y=homes_sold
-    series=state
     title="Selected States Homes Sold"
 />
 
@@ -135,7 +133,6 @@ AND state not in('United States', 'Columbia')
     data={scatter_chart} 
     x=median_sale_price
     y=homes_sold
-    series=state 
     xAxisTitle=true 
     yAxisTitle=true
     title="Median Sale Price vs Homes Sold"
