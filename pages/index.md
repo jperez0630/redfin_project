@@ -48,7 +48,7 @@ FROM combined_price_homes_sold
 WHERE state != 'United States'
 AND property_type like '${inputs.Property_Types}'
 ORDER BY median_sale_price DESC
-Limit 5
+Limit 20
 ```
 
 
@@ -56,7 +56,7 @@ Limit 5
     data={top_5_median_sale_price} 
     x=state
     y=median_sale_price
-    title="Top 5 Most Expensive States By Property Type"
+    title="Top 20 Most Expensive States By Property Type"
 />
 
 
