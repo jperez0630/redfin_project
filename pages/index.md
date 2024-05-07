@@ -53,7 +53,7 @@ Limit 5
 
 <BarChart 
     data={top_5_median_sale_price} 
-    x=period_end
+    x=state
     y=medium_sale_price
     title="Top 5 Most Expensive States/Property Types"
 />
