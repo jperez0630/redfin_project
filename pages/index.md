@@ -15,6 +15,7 @@ title: Redfin Real Estate Report
     name=state
     data={states}
     value=state
+    multiple=true
     title="Select a State"
 >
     <DropdownOption value="United States"/>
