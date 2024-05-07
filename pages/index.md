@@ -75,6 +75,7 @@ Limit 20
     data={bottom_20_median_sale_price}
     x=state
     y=median_sale_price
+    sort=false
     title="20 Lowest Median Sale Price By Property Type"
 />
 
