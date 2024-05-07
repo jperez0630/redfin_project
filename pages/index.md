@@ -59,7 +59,7 @@ Limit 20
     title="20 Highest Median Sale Price By Property Type"
 />
 
-```sql Bottom_20_median_sale_price
+```sql bottom_20_median_sale_price
 SELECT state,
 median_sale_price,
 property_type
@@ -72,13 +72,11 @@ Limit 20
 ```
 
 <BarChart 
-    data={Bottom_20_median_sale_price}
+    data={bottom_20_median_sale_price}
     x=state
     y=median_sale_price
     title="20 Lowest Median Sale Price By Property Type"
 />
-
-
 
 ```sql median_sale_price_by_state
     SELECT * FROM median_sale_price_per_state
@@ -150,5 +148,5 @@ WHERE property_type like '${inputs.Property_Types}'
     state=state
     value=median_sale_price
     colorScale=bluegreen
-    title="Median PPSF Map"
+    title="Median Sale Price Per State Map"
 />
