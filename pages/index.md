@@ -39,13 +39,13 @@ title: Redfin Real Estate Report
 </ButtonGroup>
 
 
-```sql top_5_median_sale_price
+```sql top_20_median_sale_price
 SELECT state,
 median_sale_price,
 property_type
 
 FROM combined_price_homes_sold
-WHERE state != 'United States'
+WHERE state not in ('United States','Columbia')
 AND property_type like '${inputs.Property_Types}'
 ORDER BY median_sale_price DESC
 Limit 20
@@ -56,8 +56,28 @@ Limit 20
     data={top_5_median_sale_price} 
     x=state
     y=median_sale_price
-    title="Top 20 Most Expensive States By Property Type"
+    title="20 Highest Median Sale Price By Property Type"
 />
+
+```sql Bottom_20_median_sale_price
+SELECT state,
+median_sale_price,
+property_type
+
+FROM combined_price_homes_sold
+WHERE state not in ('United States','Columbia')
+AND property_type like '${inputs.Property_Types}'
+ORDER BY median_sale_price ASC
+Limit 20
+```
+
+<BarChart 
+    data={Bottom_20_median_sale_price}
+    x=state
+    y=median_sale_price
+    title="20 Lowest Median Sale Price By Property Type"
+/>
+
 
 
 ```sql median_sale_price_by_state
