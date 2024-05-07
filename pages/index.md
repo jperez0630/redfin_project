@@ -39,6 +39,26 @@ title: Redfin Real Estate Report
 </ButtonGroup>
 
 
+```sql top_5_median_sale_price
+SELECT state,
+median_sale_price,
+property_type
+
+FROM combined_price_homes_sold
+WHERE state != 'United States'
+ORDER BY median_sale_price DESC
+Limit 5
+```
+
+
+<BarChart 
+    data={top_5_median_sale_price} 
+    x=period_end
+    y=medium_sale_price
+    title="Top 5 Most Expensive States/Property Types"
+/>
+
+
 ```sql median_sale_price_by_state
     SELECT * FROM median_sale_price_per_state
     WHERE state in(
@@ -50,18 +70,8 @@ title: Redfin Real Estate Report
 <LineChart data={median_sale_price_by_state} x=period_end y=median_sale_price yAxisTitle="Median Sale Price">
     <ReferenceLine x='2020-03-11' label="Start Covid Pandemic" hideValue=true/>
     <ReferenceLine x='2023-05-05' label="End Covid Pandemic" hideValue=true/>
-    <ReferenceLine x='2021-01-07' label="20+ Year Low Home Interest Rate" hideValue=true/>
-    <ReferenceLine x='2023-10-26' label="20+ Year High Interest Rate" hideValue=true/>
 </LineChart>
 
-
-<!-- <LineChart 
-    data={median_sale_price_by_state
-    }  
-    x=period_end
-    y=median_sale_price
-    title="Median Sale Price Per State"
-/> -->
 
 ```sql median_ppsf_per_state
     SELECT * FROM median_ppsf_per_state
