@@ -46,13 +46,20 @@ title: Redfin Real Estate Report
     AND property_type like '${inputs.Property_Types}'
 ```
 
-<LineChart 
+
+<LineChart data={median_sale_price_by_state} x=period_end y=median_sale_price yAxisTitle="Median Sale Price">
+    <ReferenceLine x='2020-03-11' label="Start Pandemic" hideValue=true/>
+    <ReferenceLine x='2023-05-05' label="EnD Covid Pandemic" hideValue=true/>
+</LineChart>
+
+
+<!-- <LineChart 
     data={median_sale_price_by_state
     }  
     x=period_end
     y=median_sale_price
     title="Median Sale Price Per State"
-/>
+/> -->
 
 ```sql median_ppsf_per_state
     SELECT * FROM median_ppsf_per_state
@@ -110,4 +117,5 @@ WHERE property_type like '${inputs.Property_Types}'
     state=state
     value=median_sale_price
     colorScale=bluegreen
+    title="Median PPSF Map"
 />

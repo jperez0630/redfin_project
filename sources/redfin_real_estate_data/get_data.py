@@ -11,36 +11,12 @@ import plotly.express as px
 # target_directory = get_target_directory('redfin_real_estate_data')
 
 
-
-
-# con = duckdb.connect(f'{Path.cwd()}/redfin_real_estate_data.duckdb')
-# local_con = con.cursor()
-# local_con.query('INSTALL httpfs')
-# local_con.query('LOAD httpfs')
-# local_con.query('''
-#                 CREATE TABLE housing_info AS SELECT
-#                 period_end,
-#                 region as "postal_code",
-#                 state,
-#                 state_code,
-#                 property_type,
-#                 median_sale_price,
-#                 median_ppsf,
-#                 homes_sold
-
-#                 FROM read_csv_auto(
-#                 'https://redfin-public-data.s3.us-west-2.amazonaws.com/redfin_market_tracker/state_market_tracker.tsv000.gz') 
-#                 --WHERE period_end >= CURRENT_DATE - 365
-#                 WHERE property_type != 'All Residential'
-#                 ''')
-
 con = duckdb.connect(f'{Path.cwd()}/redfin_real_estate_data.duckdb')
 local_con = con.cursor()
 
 #Importing CSV FILE
 df = pd.read_csv(
     'https://redfin-public-data.s3.us-west-2.amazonaws.com/redfin_market_tracker/state_market_tracker.tsv000.gz', delimiter = '\t', 
-    #'https://redfin-public-data.s3.us-west-2.amazonaws.com/redfin_market_tracker/zip_code_market_tracker.tsv000.gz', delimiter = '\t',
     usecols=[
         'period_end',
         'state',
