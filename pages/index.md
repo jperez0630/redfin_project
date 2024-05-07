@@ -105,6 +105,7 @@ Limit 20
     }  
     x=period_end
     y=median_ppsf
+    series=${inputs.state.value}
     title="Selected States Median Price Per Square Foot"
 />
 
