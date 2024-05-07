@@ -48,8 +48,10 @@ title: Redfin Real Estate Report
 
 
 <LineChart data={median_sale_price_by_state} x=period_end y=median_sale_price yAxisTitle="Median Sale Price">
-    <ReferenceLine x='2020-03-11' label="Start Pandemic" hideValue=true/>
-    <ReferenceLine x='2023-05-05' label="EnD Covid Pandemic" hideValue=true/>
+    <ReferenceLine x='2020-03-11' label="Start Covid Pandemic" hideValue=true/>
+    <ReferenceLine x='2023-05-05' label="End Covid Pandemic" hideValue=true/>
+    <ReferenceLine x='2021-01-07' label="20+ Year Low Home Interest Rate" hideValue=true/>
+    <ReferenceLine x='2023-10-26' label="20+ Year High Interest Rate" hideValue=true/>
 </LineChart>
 
 
