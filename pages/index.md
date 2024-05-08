@@ -2,6 +2,19 @@
 title: Redfin Real Estate Report
 ---
 
+```sql get_max_period_end
+    SELECT max(period_end) as max_period_end
+    FROM median_homes_sold_per_state
+```
+<Value 
+    data={get_max_period_end}
+    column=period_end
+    row=0
+/>
+
+Period from 01-01-2012 to <Value data={get_max_period_end} />
+
+
 ## Select a State and Property Type to View Data
 
 ```sql states
