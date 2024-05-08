@@ -5,7 +5,7 @@ title: Redfin Real Estate Report
 ```sql get_min_max_period_end
 
     SELECT 
-    CAST(MAX(period_end) AS DATE) as "max_date"
+    CAST(MAX(period_end) AS DATE) as "max_date",
     CAST(MIN(period_end) AS DATE) as "min_date"
     FROM median_sale_price_per_state
 ```
