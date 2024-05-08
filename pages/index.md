@@ -83,12 +83,12 @@ Limit 20
 
 ```sql median_sale_price_by_state
     SELECT * FROM median_sale_price_per_state
-    WHERE state LIKE ${inputs.state.value}
+    WHERE state LIKE '${inputs.state.value}'
     AND property_type like '${inputs.Property_Types}'
 ```
 
 
-<LineChart data={median_sale_price_by_state} x=period_end y=median_sale_price, yAxisTitle="Median Sale Price", title="Selected State Median Sale Price">
+<LineChart data={median_sale_price_by_state} x=period_end y=median_sale_price yAxisTitle="Median Sale Price" title="Selected State Median Sale Price">
     <ReferenceLine x='2020-03-11' label="Start Covid Pandemic" hideValue=true/>
     <ReferenceLine x='2023-05-05' label="End Covid Pandemic" hideValue=true/>
 </LineChart>
