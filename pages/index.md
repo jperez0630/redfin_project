@@ -83,7 +83,7 @@ Limit 20
 
 ```sql median_sale_price_by_state
     SELECT * FROM median_sale_price_per_state
-    WHERE state LIKE '${inputs.state.value}'
+    WHERE state LIKE ${inputs.state.value}
     AND property_type like '${inputs.Property_Types}'
 ```
 
