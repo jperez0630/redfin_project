@@ -33,11 +33,10 @@ title: Redfin Real Estate Report
     data={property_types} 
     name=Property_Types
     value=property_type
-    default
     title="Select a Property Type"
 >
     <!-- <ButtonGroupItem valueLabel="All Categories" value="%" default /> -->
-    <!-- <ButtonGroupItem valueLabel=Townhouse default /> -->
+    <ButtonGroupItem valueLabel="Single Family Residential" default />
 </ButtonGroup>
 
 
