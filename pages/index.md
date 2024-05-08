@@ -3,8 +3,9 @@ title: Redfin Real Estate Report
 ---
 
 ```sql get_max_period_end
-    SELECT max(period_end) as max_period_end
-    FROM median_homes_sold_per_state
+
+    SELECT CAST(MAX(period_end) AS DATE) as "max_date"
+    FROM median_sale_price_per_state
 ```
 <Value 
     data={get_max_period_end}
