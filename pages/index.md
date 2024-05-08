@@ -100,13 +100,20 @@ Limit 20
     AND property_type like '${inputs.Property_Types}'
 ```
 
-<LineChart 
+<!-- <LineChart 
     data={median_ppsf_per_state
     }  
     x=period_end
     y=median_ppsf
     title="Selected States Median Price Per Square Foot"
-/>
+/> -->
+
+<LineChart data={median_ppsf_per_state} x=period_end y=median_ppsf yAxisTitle="Median Price Per Square Foot" title="Selected State Median Price Per Square Foot">
+    <ReferenceLine x='2020-03-11' label="Start Covid Pandemic" hideValue=true/>
+    <ReferenceLine x='2023-05-05' label="End Covid Pandemic" hideValue=true/>
+</LineChart>
+
+
 
 
 ```sql homes_sold_per_state
