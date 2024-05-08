@@ -68,7 +68,7 @@ Limit 20
     data={top_20_median_sale_price} 
     x=state
     y=median_sale_price
-    title="20 Highest Median Sale Price By Property Type {<Value data={get_min_max_period_end} column=max_date />}"
+    title="Top 20 Cities With The Highest Median Sale Price By Property Type Latest Period"
 />
 
 ```sql bottom_20_median_sale_price
@@ -88,7 +88,7 @@ Limit 20
     x=state
     y=median_sale_price
     sort=false
-    title="20 Lowest Median Sale Price By Property Type"
+    title="Top 20 Cities With The Lowest Median Sale Price By Property Type Latest Period"
 />
 
 ```sql median_sale_price_by_state
