@@ -141,6 +141,7 @@ AND state not in('United States', 'Columbia')
     data={scatter_chart} 
     x=median_sale_price
     y=homes_sold
+    series=state
     xAxisTitle=true 
     yAxisTitle=true
     title="Median Sale Price vs Homes Sold"
