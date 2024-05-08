@@ -100,13 +100,7 @@ Limit 20
     AND property_type like '${inputs.Property_Types}'
 ```
 
-<!-- <LineChart 
-    data={median_ppsf_per_state
-    }  
-    x=period_end
-    y=median_ppsf
-    title="Selected States Median Price Per Square Foot"
-/> -->
+
 
 <LineChart data={median_ppsf_per_state} x=period_end y=median_ppsf yAxisTitle="Median Price Per Square Foot" title="Selected State Median Price Per Square Foot">
     <ReferenceLine x='2020-03-11' label="Start Covid Pandemic" hideValue=true/>
@@ -122,13 +116,20 @@ Limit 20
     AND property_type like '${inputs.Property_Types}'
 ```
 
-<LineChart 
+<!-- <LineChart 
     data={homes_sold_per_state
     }  
     x=period_end
     y=homes_sold
     title="Selected States Homes Sold"
-/>
+/> -->
+
+
+<LineChart data={homes_sold_per_state} x=period_end y=homes_sold yAxisTitle="Median Homes Sold" title="Selected State Homes Sold Per Month">
+    <ReferenceLine x='2020-03-11' label="Start Covid Pandemic" hideValue=true/>
+    <ReferenceLine x='2023-05-05' label="End Covid Pandemic" hideValue=true/>
+</LineChart>
+
 
 ```sql scatter_chart
 SELECT * FROM combined_price_homes_sold
