@@ -9,7 +9,7 @@ title: Redfin Real Estate Report
     CAST(MIN(period_end) AS DATE) as "min_date"
     FROM median_sale_price_per_state
 ```
-Period from <Value data={get_min_max_period_end} column=min_date />  to <Value data={get_min_max_period_end} column=max_date />
+Period from <Value data={get_min_max_period_end} column=min_date /> to <Value data={get_min_max_period_end} column=max_date />
 
 
 ## Select a State and Property Type to View Data
