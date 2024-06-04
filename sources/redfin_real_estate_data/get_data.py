@@ -11,7 +11,7 @@ import plotly.express as px
 # target_directory = get_target_directory('redfin_real_estate_data')
 
 
-con = duckdb.connect(f'{Path.cwd()}/redfin_real_estate_data.duckdb')
+con = duckdb.connect(f'{Path.cwd()}/sources/redfin_real_estate_data/redfin_real_estate_data.duckdb')
 local_con = con.cursor()
 
 #Importing CSV FILE
@@ -123,7 +123,7 @@ df_merge_price_homes_sold_final = df_merge_price_homes_sold.loc[(
 # ''')
 
 local_con.sql('''
-CREATE TABLE median_ppsf_per_state AS
+CREATE OR REPLACE TABLE median_ppsf_per_state AS
 SELECT * FROM df_final_median_ppsf
 ''')
 
@@ -134,27 +134,4 @@ SELECT * FROM df_final_median_ppsf
 
 
 
-df_filtered.to_parquet('redfin_real_estate_data.parquet', compression='gzip')
-
-con = duckdb.connect(f'{Path.cwd()}/redfin_real_estate_data.duckdb')
-local_con = con.cursor()
-# local_con.query('INSTALL httpfs')
-# local_con.query('LOAD httpfs')
-local_con.query('''
-                CREATE TABLE housing_info AS SELECT
-                period_end,
-                region as "postal_code",
-                state,
-                property_type,
-                median_sale_price,
-                median_ppsf,
-                homes_sold
-
-                FROM read_parquet(
-                'C:\\Users\\jspre\\projects\\redfin_project\\sources\\redfin_real_estate_data\\redfin_real_estate_data.parquet'
-                ) 
-                WHERE period_end >= CURRENT_DATE - 365
-                AND property_type != 'All Residential'
-
-                ''')
 
